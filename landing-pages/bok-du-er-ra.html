@@ -4,7 +4,7 @@
   Alt er scoped under .dera, så resten av Kajabi-temaet påvirkes ikke.
 
   FØR PUBLISERING – bekreft/erstatt alt merket [BEKREFT] og TODO:
-  - Pris (349 kr er prisen på Kajabi-offeret – sjekk mot edpay), format og frakt
+  - Pris (349 kr er prisen på Kajabi-offeret – sjekk mot edpay). Frakt inkludert og vilkår hentet fra /kjopsvilkaarbok
   - «Snart utsolgt» (fjern når det ikke lenger stemmer)
   - Bildelenker (Kajabi CDN-stier fra dagens side – sjekk at de laster)
   - Sitatet fra Anja Hammereng-Edin (hent fullt sitat og tillatelse)
@@ -160,6 +160,10 @@
   .dera-gift { background: var(--cream); border-radius: 12px; padding: var(--space-2) 20px; font-size: 16px; color: var(--ink-soft); }
   .dera-gift a { color: var(--rose); font-weight: 700; }
   .dera-form { min-height: 420px; } /* reserverer plass til skjemaet (unngår layout-hopp) */
+
+  .dera-legal { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin-top: var(--space-2); }
+  .dera-legal a, .dera-footer a { color: var(--rose); text-decoration: underline; }
+  .dera-footer { background: var(--cream); text-align: center; padding: var(--space-4) var(--space-3); font-size: 14px; color: var(--ink-soft); }
 
   /* Avslutning */
   .dera-close { text-align: center; }
@@ -361,7 +365,7 @@
           <!-- TODO: erstatt med teksten fra testimonial-bildet, ord for ord. Bildet beholdes. -->
           <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2157842897/settings_images/131de0-d3fd-7b7a-32a7-fbaad81f2fe7_1.jpg"
                alt="Tilbakemelding fra en leser av Du er rå!" width="600" height="600" loading="lazy">
-          <figcaption>[Navn fra bildet]</figcaption>
+          <figcaption>Leser av Du er rå!</figcaption>
         </figure>
       </div>
     </div>
@@ -376,7 +380,7 @@
         <p>Når du bestiller boken fra meg, signerer jeg den og legger ved en personlig hilsen. Det får du ikke i bokhandelen.</p>
         <div class="dera-price">
           <span class="dera-price__amount">349 kr</span>
-          <span class="dera-price__meta">Innbundet · [BEKREFT frakt]</span>
+          <span class="dera-price__meta">Innbundet · Frakt inkludert</span>
         </div>
         <!-- [BEKREFT] fjern linjen under når det ikke lenger stemmer -->
         <p class="dera-stock">Innbundet utgave er snart utsolgt</p>
@@ -386,13 +390,14 @@
           <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Tilgang til ekstra øvelser på nett</li>
         </ul>
         <div class="dera-gift">
-          <strong>Skal boken være en gave?</strong> Kjøper du med Vipps, er det ditt navn og din adresse som kommer på pakken. Send meg en e-post på <a href="mailto:ine@ineroyert.no">ine@ineroyert.no</a> hvis den skal sendes direkte til mottakeren, eller hvis hilsenen skal skrives til noen andre.
+          <strong>Skal boken være en gave?</strong> Kjøper du med Vipps, er det ditt navn og din adresse som kommer på pakken. Send en e-post til <a href="mailto:team@ineroyert.no">team@ineroyert.no</a> rett etter bestilling, med navnet som skal stå i signeringen og eventuell annen leveringsadresse.
         </div>
       </div>
       <div class="dera-form">
         <!-- Bestillingsskjema (edpay) – skal kun finnes ÉN gang på siden -->
         <div id="edpay-book-checkout"></div>
         <script src="https://app.edpay.no/js/book_checkout_embed.js" defer onload="edpayBookCheckout(418, 10131, '#edpay-book-checkout')"></script>
+        <p class="dera-legal">Signerte bøker er personlig tilpasset, og angreretten gjelder derfor ikke (angrerettloven § 22 bokstav e). Ønsker du en usignert utgave, send en e-post før du bestiller. Ved å bestille godtar du <a href="https://www.ineroyert.no/kjopsvilkaarbok" target="_blank" rel="noopener">kjøpsvilkårene</a>. Les også <a href="https://www.ineroyert.no/personvern" target="_blank" rel="noopener">personvernerklæringen</a>.</p>
       </div>
     </div>
   </section>
@@ -407,6 +412,11 @@
       <p class="dera-ps"><strong>P.S.</strong> En av leserne mine fikk boken i julegave av en venninne, midt i det hun kalte det verste året i livet sitt. I dag sier hun at hun står støtt, også når livet blåser. Hvis du vet om noen som trenger den akkurat nå, skriver jeg gjerne en hilsen til dem.</p>
     </div>
   </section>
+
+  <!-- Bunntekst -->
+  <footer class="dera-footer">
+    <p>© Pure Performance AS · Org.nr. 926 924 672 · <a href="https://www.ineroyert.no/kjopsvilkaarbok">Kjøpsvilkår</a> · <a href="https://www.ineroyert.no/personvern">Personvern</a> · <a href="mailto:team@ineroyert.no">team@ineroyert.no</a></p>
+  </footer>
 
   <!-- Sticky knapp (kun mobil/nettbrett) -->
   <div class="dera-sticky" role="region" aria-label="Bestill boken">
