@@ -1,0 +1,416 @@
+<!--
+  Salgsside: DU ER RÅ! – ineroyert.no/bok/mentaltrening
+  Lim inn hele denne filen i én «Custom Code»-blokk i Kajabi (full bredde).
+  Alt er scoped under .dera, så resten av Kajabi-temaet påvirkes ikke.
+
+  FØR PUBLISERING – bekreft/erstatt alt merket [BEKREFT] og TODO:
+  - Pris (349 kr er prisen på Kajabi-offeret – sjekk mot edpay), format og frakt
+  - «Snart utsolgt» (fjern når det ikke lenger stemmer)
+  - Bildelenker (Kajabi CDN-stier fra dagens side – sjekk at de laster)
+  - Sitatet fra Anja Hammereng-Edin (hent fullt sitat og tillatelse)
+  - Teksten fra de tre testimonial-bildene
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+  .dera {
+    --rose: #9b2c64;          /* knapper og tekstaksent – 7:1 mot hvitt */
+    --rose-dark: #7d2150;
+    --rose-brand: #ce679c;    /* Ines rosa – kun store titler/dekor */
+    --blush: #f6d6dc;
+    --cream: #fbf6ee;
+    --ink: #3a2a30;
+    --ink-soft: #5c4a52;
+    --white: #ffffff;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(58, 42, 48, 0.10);
+    --space-1: 8px; --space-2: 16px; --space-3: 24px; --space-4: 40px; --space-5: 64px; --space-6: 96px;
+    font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  .dera *, .dera *::before, .dera *::after { box-sizing: border-box; }
+  .dera img { max-width: 100%; height: auto; display: block; }
+  .dera h1, .dera h2, .dera h3 {
+    font-family: "Playfair Display", Georgia, serif;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 0 0 var(--space-2);
+    text-wrap: balance;
+  }
+  .dera p { margin: 0 0 var(--space-2); }
+  .dera p:last-child { margin-bottom: 0; }
+  .dera strong { font-weight: 700; }
+
+  .dera-wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-3); }
+  .dera-narrow { max-width: 720px; margin: 0 auto; padding: 0 var(--space-3); }
+  .dera-section { padding: var(--space-6) 0; }
+  .dera-section--white { background: var(--white); }
+  .dera-section--blush { background: var(--blush); }
+  .dera-eyebrow {
+    font-size: 14px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: var(--space-2);
+  }
+  .dera h2 { font-size: clamp(30px, 4vw, 42px); }
+  .dera-lead { font-size: 20px; color: var(--ink-soft); }
+
+  /* Knapp */
+  .dera-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 52px; padding: 14px 32px; border-radius: 999px;
+    background: var(--rose); color: var(--white) !important; text-decoration: none !important;
+    font-weight: 700; font-size: 18px; letter-spacing: 0.01em;
+    box-shadow: 0 6px 18px rgba(155, 44, 100, 0.28);
+    transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    cursor: pointer;
+  }
+  .dera-btn:hover { background: var(--rose-dark); transform: translateY(-1px); box-shadow: 0 10px 24px rgba(155, 44, 100, 0.32); }
+  .dera-btn:focus-visible, .dera a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+  .dera-btn svg { width: 20px; height: 20px; flex: none; }
+  .dera-micro { font-size: 15px; color: var(--ink-soft); margin-top: 12px; }
+
+  /* Hero */
+  .dera-hero { padding: var(--space-5) 0 var(--space-6); background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%); }
+  .dera-hero__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: center; }
+  .dera-hero__badge {
+    display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
+    background: var(--white); color: var(--rose); font-size: 14px; font-weight: 700; margin-bottom: var(--space-3);
+    box-shadow: 0 2px 8px rgba(58, 42, 48, 0.06);
+  }
+  .dera-hero__badge svg { width: 16px; height: 16px; }
+  .dera-hero h1 {
+    font-size: clamp(54px, 9vw, 92px); color: var(--rose-brand); letter-spacing: -0.01em; margin-bottom: var(--space-1);
+  }
+  .dera-hero__subtitle {
+    font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: clamp(22px, 2.6vw, 28px); color: var(--ink); margin-bottom: var(--space-3);
+  }
+  .dera-hero__text { font-size: 20px; color: var(--ink-soft); max-width: 34em; margin-bottom: var(--space-4); }
+  .dera-hero__cover { justify-self: center; width: min(380px, 80vw); }
+  .dera-hero__cover img { border-radius: 6px; box-shadow: 0 30px 60px rgba(58, 42, 48, 0.25); transform: rotate(-2deg); }
+
+  /* Sitat under hero */
+  .dera-pullquote { text-align: center; padding: var(--space-5) 0; background: var(--white); }
+  .dera-pullquote blockquote {
+    margin: 0 auto; max-width: 760px;
+    font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500;
+    font-size: clamp(22px, 3vw, 30px); line-height: 1.4; color: var(--ink);
+  }
+  .dera-pullquote cite { display: block; margin-top: var(--space-2); font-style: normal; font-size: 16px; color: var(--ink-soft); }
+
+  /* Kjenner du deg igjen */
+  .dera-list { list-style: none; padding: 0; margin: var(--space-3) 0 var(--space-4); display: grid; gap: var(--space-2); }
+  .dera-list li {
+    display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start;
+    background: var(--white); border-radius: var(--radius); padding: 18px 20px; box-shadow: 0 2px 10px rgba(58, 42, 48, 0.05);
+  }
+  .dera-list svg { width: 24px; height: 24px; color: var(--rose); margin-top: 3px; }
+  .dera-turn { font-family: "Playfair Display", Georgia, serif; font-size: clamp(24px, 3vw, 30px); line-height: 1.3; color: var(--ink); }
+  .dera-turn em { color: var(--rose); font-style: normal; }
+
+  /* Hva er mentaltrening */
+  .dera-story { border-left: 4px solid var(--rose-brand); padding-left: var(--space-3); margin: var(--space-3) 0; }
+  .dera-skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: var(--space-3) 0; }
+  .dera-skills li { background: var(--blush); color: var(--ink); border-radius: 999px; padding: 8px 16px; font-size: 16px; font-weight: 600; }
+
+  /* Innhold i boken */
+  .dera-features { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-4); }
+  .dera-feature { background: var(--white); border-radius: var(--radius); padding: var(--space-3); box-shadow: var(--shadow); }
+  .dera-feature__icon {
+    width: 44px; height: 44px; border-radius: 12px; background: var(--blush); color: var(--rose);
+    display: grid; place-items: center; margin-bottom: var(--space-2);
+  }
+  .dera-feature__icon svg { width: 24px; height: 24px; }
+  .dera-feature h3 { font-family: "Open Sans", sans-serif; font-size: 19px; font-weight: 700; margin-bottom: 6px; }
+  .dera-feature p { color: var(--ink-soft); font-size: 17px; }
+  .dera-callout { text-align: center; margin-top: var(--space-5); }
+  .dera-callout__big { font-family: "Playfair Display", Georgia, serif; font-size: clamp(26px, 3.4vw, 36px); color: var(--rose); margin-bottom: var(--space-2); }
+
+  /* Om Ine */
+  .dera-author { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: center; }
+  .dera-author__img img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .dera-creds { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; padding: 0; margin: var(--space-3) 0 0; font-size: 15px; color: var(--ink-soft); }
+  .dera-creds li { display: flex; align-items: center; gap: 8px; }
+  .dera-creds svg { width: 18px; height: 18px; color: var(--rose); flex: none; }
+
+  /* Leserne */
+  .dera-quotes { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-4); }
+  .dera-quote { background: var(--white); border-radius: var(--radius); padding: var(--space-3); box-shadow: var(--shadow); display: flex; flex-direction: column; gap: var(--space-2); margin: 0; }
+  .dera-quote__mark { width: 32px; height: 32px; color: var(--rose-brand); }
+  .dera-quote blockquote { margin: 0; font-size: 17px; line-height: 1.6; }
+  .dera-quote figcaption { margin-top: auto; font-weight: 700; font-size: 15px; color: var(--ink-soft); }
+  .dera-quote img { border-radius: 10px; }
+
+  /* Bestill */
+  .dera-order { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: start; }
+  .dera-order__card { background: var(--white); border-radius: var(--radius); padding: var(--space-4) var(--space-3); box-shadow: var(--shadow); }
+  .dera-price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin: var(--space-2) 0; }
+  .dera-price__amount { font-family: "Playfair Display", Georgia, serif; font-size: 44px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .dera-price__meta { color: var(--ink-soft); font-size: 16px; }
+  .dera-stock { display: inline-flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 700; color: var(--rose); margin-bottom: var(--space-3); }
+  .dera-stock::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--rose); }
+  .dera-includes { list-style: none; padding: 0; margin: 0 0 var(--space-3); display: grid; gap: 10px; }
+  .dera-includes li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: 17px; }
+  .dera-includes svg { width: 20px; height: 20px; color: var(--rose); margin-top: 4px; }
+  .dera-gift { background: var(--cream); border-radius: 12px; padding: var(--space-2) 20px; font-size: 16px; color: var(--ink-soft); }
+  .dera-gift a { color: var(--rose); font-weight: 700; }
+  .dera-form { min-height: 420px; } /* reserverer plass til skjemaet (unngår layout-hopp) */
+
+  /* Avslutning */
+  .dera-close { text-align: center; }
+  .dera-close__sign { font-family: "Playfair Display", Georgia, serif; font-style: italic; font-size: 24px; line-height: 1.4; margin-top: var(--space-5); }
+  .dera-ps { margin-top: var(--space-4); padding-top: var(--space-3); border-top: 1px solid rgba(58, 42, 48, 0.15); text-align: left; color: var(--ink-soft); }
+
+  /* Sticky knapp på mobil */
+  .dera-sticky {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96); box-shadow: 0 -6px 20px rgba(58, 42, 48, 0.12);
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  }
+  .dera-sticky span { font-weight: 700; font-size: 16px; }
+  .dera-sticky .dera-btn { min-height: 44px; padding: 10px 20px; font-size: 16px; }
+
+  @media (min-width: 768px) {
+    .dera-features { grid-template-columns: repeat(2, 1fr); }
+    .dera-quotes { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 960px) {
+    .dera-hero { padding: var(--space-6) 0; }
+    .dera-hero__grid { grid-template-columns: 1.15fr 0.85fr; }
+    .dera-features { grid-template-columns: repeat(3, 1fr); }
+    .dera-author { grid-template-columns: 0.8fr 1.2fr; }
+    .dera-order { grid-template-columns: 1fr 1fr; }
+    .dera-sticky { display: none; }
+  }
+  @media (max-width: 959px) { .dera { padding-bottom: 72px; } }
+  @media (prefers-reduced-motion: reduce) {
+    .dera *, .dera *::before, .dera *::after { transition: none !important; }
+    .dera-btn:hover { transform: none; }
+    .dera-hero__cover img { transform: none; }
+  }
+</style>
+
+<!-- Ikoner (Lucide-stil), brukes via <use> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="dera-i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="dera-i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="dera-i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="dera-i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3 6.1 20.6l1.3-6.6L2.5 9.4l6.6-.8z"/></symbol>
+  <symbol id="dera-i-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M9.6 6C6.4 7.4 4.5 10 4.5 13.6V18h5.2v-5.2H7.2c.1-2 1.1-3.5 3.3-4.6L9.6 6Zm9.4 0c-3.2 1.4-5.1 4-5.1 7.6V18h5.2v-5.2h-2.5c.1-2 1.1-3.5 3.3-4.6L19 6Z"/></symbol>
+  <symbol id="dera-i-foundation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-6 7 6v11"/><path d="M9 21v-6h6v6"/></symbol>
+  <symbol id="dera-i-compass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></symbol>
+  <symbol id="dera-i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10Z"/></symbol>
+  <symbol id="dera-i-brain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 2 5 3 3 0 0 0 6 1V5a2 2 0 0 0-3-1Z"/><path d="M15 4a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-2 5 3 3 0 0 1-6 1"/></symbol>
+  <symbol id="dera-i-wind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11a3 3 0 1 0-3-3"/><path d="M3 12h16a3 3 0 1 1-3 3"/><path d="M3 16h7"/></symbol>
+  <symbol id="dera-i-pen" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></symbol>
+</svg>
+
+<div class="dera" lang="nb">
+
+  <!-- 1. HERO -->
+  <section class="dera-hero" aria-labelledby="dera-title">
+    <div class="dera-wrap dera-hero__grid">
+      <div>
+        <p class="dera-hero__badge"><svg aria-hidden="true"><use href="#dera-i-star"/></svg>Kom på Norlis bestselgerliste i 2024</p>
+        <h1 id="dera-title">DU ER RÅ!</h1>
+        <p class="dera-hero__subtitle">Oppdag ditt potensial med mentaltrening</p>
+        <p class="dera-hero__text">Du vet sikkert allerede mye om hva som er bra for deg. Denne boken handler om hvordan du faktisk <em>bruker</em> det – når hodet kverner, når du står i et vanskelig valg, og når du trenger å stole mer på deg selv.</p>
+        <a class="dera-btn" href="#bestill">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+        <p class="dera-micro">Signert av meg, med en personlig hilsen. Kun når du bestiller her.</p>
+      </div>
+      <div class="dera-hero__cover">
+        <!-- TODO: sjekk at bildet laster (samme bilde som dagens hero) -->
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2157842897/settings_images/3d2e322-a180-af38-f2c2-4a7b8c1b03d_dd53fc0d-5399-46da-a25d-d90dc017c37f.jpg"
+             alt="Boken Du er rå! av Ine Røyert" width="760" height="1000" fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. SITAT -->
+  <section class="dera-pullquote" aria-label="Fra en leser">
+    <div class="dera-narrow">
+      <blockquote>«Boken fikk meg til å stille spørsmål jeg hadde sluttet å tørre å stille.»</blockquote>
+      <cite>– Leser, i 30-årene</cite>
+    </div>
+  </section>
+
+  <!-- 3. KJENNER DU DEG IGJEN -->
+  <section class="dera-section" aria-labelledby="dera-recognise">
+    <div class="dera-narrow">
+      <h2 id="dera-recognise">Kjenner du deg igjen?</h2>
+      <ul class="dera-list">
+        <li><svg aria-hidden="true"><use href="#dera-i-chevron"/></svg><span>Du vet hva du burde gjøre – men får det ikke til i hverdagen.</span></li>
+        <li><svg aria-hidden="true"><use href="#dera-i-chevron"/></svg><span>Hodet kverner, særlig når du skal ta en beslutning eller endelig få sove.</span></li>
+        <li><svg aria-hidden="true"><use href="#dera-i-chevron"/></svg><span>Du vil egentlig rekke opp hånden, si din mening eller gripe en sjanse – men holder deg tilbake.</span></li>
+        <li><svg aria-hidden="true"><use href="#dera-i-chevron"/></svg><span>Du har lest, lyttet og forstått mye. Likevel har lite satt seg.</span></li>
+      </ul>
+      <p class="dera-lead">Det er ikke fordi du mangler viljestyrke.</p>
+      <p class="dera-turn">Mental styrke er ikke noe du enten har eller ikke har. Det er <em>ferdigheter du kan trene</em> – akkurat som kroppen.</p>
+    </div>
+  </section>
+
+  <!-- 4. HVA ER MENTALTRENING -->
+  <section class="dera-section dera-section--white" aria-labelledby="dera-what">
+    <div class="dera-narrow">
+      <p class="dera-eyebrow">Om boken</p>
+      <h2 id="dera-what">Hva er egentlig mentaltrening?</h2>
+      <div class="dera-story">
+        <p>Da jeg sto på scenen på Kamille Weekend, spurte jeg salen: «Hvor mange vet egentlig hva mental trening er – og hva man konkret trener på?»</p>
+        <p>Noen hender kom opp. Men da jeg begynte å forklare hva mental trening faktisk innebærer, trakk flere hånden ned igjen.</p>
+      </div>
+      <p>For mentaltrening handler ikke om å bite tennene sammen, «gønne på» eller tenke positivt. Det handler om å trene ferdigheter som gjør deg bedre rustet til å håndtere både deg selv og livet:</p>
+      <ul class="dera-skills" aria-label="Ferdigheter du trener">
+        <li>Oppmerksomhet</li><li>Indre dialog</li><li>Stressregulering</li><li>Selvtillit</li><li>Mål</li><li>Gode vaner</li>
+      </ul>
+      <p>Det er dette <strong>Du er rå!</strong> lærer deg. Enkelt, praktisk og steg for steg – slik at du kan bruke det samme dag.</p>
+    </div>
+  </section>
+
+  <!-- 5. DETTE FÅR DU -->
+  <section class="dera-section" aria-labelledby="dera-inside">
+    <div class="dera-wrap">
+      <div class="dera-narrow" style="padding:0; text-align:center;">
+        <h2 id="dera-inside">Dette får du i boken</h2>
+      </div>
+      <div class="dera-features">
+        <article class="dera-feature">
+          <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-foundation"/></svg></div>
+          <h3>Grunnmuren for å bygge deg sterk på innsiden</h3>
+          <p>Slik at du står stødigere når livet blåser.</p>
+        </article>
+        <article class="dera-feature">
+          <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-compass"/></svg></div>
+          <h3>Verktøy for å finne dine styrker og verdier</h3>
+          <p>Slik at valgene blir lettere å ta – og lettere å stå i etterpå.</p>
+        </article>
+        <article class="dera-feature">
+          <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-heart"/></svg></div>
+          <h3>Forståelse for dine grunnleggende behov</h3>
+          <p>Nøkkelen til å ha det bra, ikke bare prestere.</p>
+        </article>
+        <article class="dera-feature">
+          <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-brain"/></svg></div>
+          <h3>En innføring i mental styrketrening</h3>
+          <p>Med konkrete øvelser du kan bruke når hodet kverner.</p>
+        </article>
+        <article class="dera-feature">
+          <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-wind"/></svg></div>
+          <h3>En introduksjon til HypnoBreathwork</h3>
+          <p>En enkel vei til å roe ned kropp og hode.</p>
+        </article>
+        <article class="dera-feature">
+          <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-pen"/></svg></div>
+          <h3>Refleksjonsøvelser og ekstra øvelser på nett</h3>
+          <!-- [BEKREFT] hvilke nettøvelser som følger med -->
+          <p>Blant annet guidet visualisering, Livshjulet og Yoga Nidra.</p>
+        </article>
+      </div>
+      <div class="dera-callout">
+        <p class="dera-callout__big">Vi klarer alle mer enn vi tror. Det gjelder også deg.</p>
+        <p class="dera-lead">Mentaltrening er ferskvare, ikke en engangsøvelse. Derfor er boken laget for å brukes, ikke bare leses.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. OM INE -->
+  <section class="dera-section dera-section--white" aria-labelledby="dera-author">
+    <div class="dera-wrap dera-author">
+      <div class="dera-author__img">
+        <!-- TODO: sjekk at bildet laster (portrettet fra dagens skjulte «Om meg»-seksjon) -->
+        <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2155981829/settings_images/088d3ef-7d26-d76-8eb3-737510bcdaa_eb10703f-966c-470d-b540-08c4752c8c70.JPG"
+             alt="Ine Røyert, mentaltrener og forfatter" width="800" height="1000" loading="lazy">
+      </div>
+      <div>
+        <p class="dera-eyebrow">Om forfatteren</p>
+        <h2 id="dera-author">Jeg heter Ine – og jeg slet med norskkarakterene</h2>
+        <p>Som barn syntes jeg bokstavene blandet seg. Jeg har dysleksi, og norsk var faget jeg slet mest med.</p>
+        <p>Likevel kom <strong>Du er rå!</strong> på Norlis bestselgerliste da den ble lansert.</p>
+        <p>Jeg forteller det ikke for å skryte. Jeg forteller det fordi det er hele poenget med boken: Det bor mer i deg enn du tror – og du kan trene det frem.</p>
+        <p>Mentaltrening traff meg allerede som 16-åring. Hadde jeg visst hvor avgjørende det skulle bli, hadde jeg trent enda oftere og startet enda tidligere. Derfor skrev jeg boken – for å gjøre mental trening enkel og praktisk, slik at du faktisk kan bruke den.</p>
+        <ul class="dera-creds">
+          <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Mentaltrener og lederutvikler</li>
+          <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Bachelor i ledelse, BI</li>
+          <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>15+ år som prosjektleder</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. LESERNE -->
+  <section class="dera-section" aria-labelledby="dera-readers">
+    <div class="dera-wrap">
+      <div style="text-align:center;"><h2 id="dera-readers">Dette sier leserne</h2></div>
+      <div class="dera-quotes">
+        <figure class="dera-quote">
+          <svg class="dera-quote__mark" aria-hidden="true"><use href="#dera-i-quote"/></svg>
+          <blockquote>«Boken fikk meg til å stille spørsmål jeg hadde sluttet å tørre å stille. […] Nå står jeg støtt, også når livet blåser. For livet er ikke bare-bare nå heller – men det velter meg ikke lenger.»</blockquote>
+          <figcaption>Leser, i 30-årene</figcaption>
+        </figure>
+        <figure class="dera-quote">
+          <svg class="dera-quote__mark" aria-hidden="true"><use href="#dera-i-quote"/></svg>
+          <!-- [BEKREFT] fullt sitat og tillatelse fra Anja Hammereng-Edin -->
+          <blockquote>«Det Ine skriver om er enormt sterkt å kunne noe om, og hun formidler på en fantastisk og ekte måte […]»</blockquote>
+          <figcaption>Anja Hammereng-Edin</figcaption>
+        </figure>
+        <figure class="dera-quote">
+          <!-- TODO: erstatt med teksten fra testimonial-bildet, ord for ord. Bildet beholdes. -->
+          <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2157842897/settings_images/131de0-d3fd-7b7a-32a7-fbaad81f2fe7_1.jpg"
+               alt="Tilbakemelding fra en leser av Du er rå!" width="600" height="600" loading="lazy">
+          <figcaption>[Navn fra bildet]</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. BESTILL -->
+  <section class="dera-section dera-section--blush" id="bestill" aria-labelledby="dera-order">
+    <div class="dera-wrap dera-order">
+      <div class="dera-order__card">
+        <p class="dera-eyebrow">Kun her</p>
+        <h2 id="dera-order">Få en signert utgave</h2>
+        <p>Når du bestiller boken fra meg, signerer jeg den og legger ved en personlig hilsen. Det får du ikke i bokhandelen.</p>
+        <div class="dera-price">
+          <span class="dera-price__amount">349 kr</span>
+          <span class="dera-price__meta">Innbundet · [BEKREFT frakt]</span>
+        </div>
+        <!-- [BEKREFT] fjern linjen under når det ikke lenger stemmer -->
+        <p class="dera-stock">Innbundet utgave er snart utsolgt</p>
+        <ul class="dera-includes">
+          <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Signert av Ine</li>
+          <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>En personlig hilsen i boken</li>
+          <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Tilgang til ekstra øvelser på nett</li>
+        </ul>
+        <div class="dera-gift">
+          <strong>Skal boken være en gave?</strong> Kjøper du med Vipps, er det ditt navn og din adresse som kommer på pakken. Send meg en e-post på <a href="mailto:ine@ineroyert.no">ine@ineroyert.no</a> hvis den skal sendes direkte til mottakeren, eller hvis hilsenen skal skrives til noen andre.
+        </div>
+      </div>
+      <div class="dera-form">
+        <!-- Bestillingsskjema (edpay) – skal kun finnes ÉN gang på siden -->
+        <div id="edpay-book-checkout"></div>
+        <script src="https://app.edpay.no/js/book_checkout_embed.js" defer onload="edpayBookCheckout(418, 10131, '#edpay-book-checkout')"></script>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. AVSLUTNING -->
+  <section class="dera-section dera-section--white" aria-label="Avslutning">
+    <div class="dera-narrow dera-close">
+      <p class="dera-lead">Du trenger ikke endre alt på én gang.</p>
+      <p class="dera-turn">Begynn med én ting. Tren på den. Og kjenn hvor mye mer som bor i deg.</p>
+      <a class="dera-btn" href="#bestill" style="margin-top: 24px;">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+      <p class="dera-close__sign">Varm hilsen,<br>Ine</p>
+      <p class="dera-ps"><strong>P.S.</strong> En av leserne mine fikk boken i julegave av en venninne, midt i det hun kalte det verste året i livet sitt. I dag sier hun at hun står støtt, også når livet blåser. Hvis du vet om noen som trenger den akkurat nå, skriver jeg gjerne en hilsen til dem.</p>
+    </div>
+  </section>
+
+  <!-- Sticky knapp (kun mobil/nettbrett) -->
+  <div class="dera-sticky" role="region" aria-label="Bestill boken">
+    <span>Du er rå! · 349 kr</span>
+    <a class="dera-btn" href="#bestill">Bestill</a>
+  </div>
+</div>
