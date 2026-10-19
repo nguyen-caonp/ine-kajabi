@@ -5,9 +5,10 @@
 
   FØR PUBLISERING – bekreft/erstatt alt merket [BEKREFT] og TODO:
   - Pris (349 kr er prisen på Kajabi-offeret – sjekk mot edpay). Frakt inkludert og vilkår hentet fra /kjopsvilkaarbok
-  - «Snart utsolgt» (fjern når det ikke lenger stemmer)
+  - Antall solgte eksemplarer ([ANTALL] i bestillingsseksjonen)
   - Bildelenker (Kajabi CDN-stier fra dagens side – sjekk at de laster)
   - Sitatet fra Anja Hammerseng-Edin: fullt sitat hentet fra e-post 08.09.2024 – bekreft tillatelse
+  - Siden består av to kodeblokker med en native Kajabi-videoseksjon imellom (se KAJABI-SPLITT)
   - Teksten fra de tre testimonial-bildene
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,7 +197,7 @@
     .dera-order { grid-template-columns: 1fr 1fr; }
     .dera-sticky { display: none; }
   }
-  @media (max-width: 959px) { .dera { padding-bottom: 72px; } }
+  @media (max-width: 959px) { .dera--end { padding-bottom: 72px; } }
   @media (prefers-reduced-motion: reduce) {
     .dera *, .dera *::before, .dera *::after { transition: none !important; }
     .dera-btn:hover { transform: none; }
@@ -331,9 +332,12 @@
       </div>
     </div>
   </section>
+</div><!-- /dera del 1 -->
+<!-- ===== KAJABI-SPLITT: her ligger video-seksjonen «Se inni boken» (native Kajabi-seksjon med videoblokk) ===== -->
+<div class="dera dera--end" lang="nb">
 
   <!-- 6. OM INE -->
-  <section class="dera-section dera-section--white" aria-labelledby="dera-author">
+  <section class="dera-section" aria-labelledby="dera-author">
     <div class="dera-wrap dera-author">
       <div class="dera-author__img">
         <!-- TODO: sjekk at bildet laster (portrettet fra dagens skjulte «Om meg»-seksjon) -->
@@ -358,7 +362,7 @@
   </section>
 
   <!-- 7. LESERNE -->
-  <section class="dera-section" aria-labelledby="dera-readers">
+  <section class="dera-section dera-section--white" aria-labelledby="dera-readers">
     <div class="dera-wrap">
       <div style="text-align:center;"><h2 id="dera-readers">Dette sier leserne</h2></div>
       <div class="dera-quotes">
@@ -393,8 +397,8 @@
           <span class="dera-price__amount">349 kr</span>
           <span class="dera-price__meta">Innbundet · Frakt inkludert</span>
         </div>
-        <!-- [BEKREFT] fjern linjen under når det ikke lenger stemmer -->
-        <p class="dera-stock">Innbundet utgave er snart utsolgt</p>
+        <!-- [BEKREFT] antall solgte eksemplarer -->
+        <p class="dera-stock">Over [ANTALL] eksemplarer solgt</p>
         <ul class="dera-includes">
           <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Signert av Ine</li>
           <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>En personlig hilsen i boken</li>
