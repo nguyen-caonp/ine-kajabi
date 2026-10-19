@@ -7,7 +7,7 @@
   - Pris (349 kr er prisen på Kajabi-offeret – sjekk mot edpay). Frakt inkludert og vilkår hentet fra /kjopsvilkaarbok
   - «Snart utsolgt» (fjern når det ikke lenger stemmer)
   - Bildelenker (Kajabi CDN-stier fra dagens side – sjekk at de laster)
-  - Sitatet fra Anja Hammereng-Edin (hent fullt sitat og tillatelse)
+  - Sitatet fra Anja Hammerseng-Edin: fullt sitat hentet fra e-post 08.09.2024 – bekreft tillatelse
   - Teksten fra de tre testimonial-bildene
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -101,7 +101,9 @@
     font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500;
     font-size: clamp(22px, 3vw, 30px); line-height: 1.4; color: var(--ink);
   }
-  .dera-pullquote cite { display: block; margin-top: var(--space-2); font-style: normal; font-size: 16px; color: var(--ink-soft); }
+  .dera-pullquote cite { display: block; margin-top: var(--space-3); font-style: normal; font-size: 16px; color: var(--ink-soft); }
+  .dera-pullquote cite strong { display: block; font-size: 18px; color: var(--ink); letter-spacing: 0.02em; }
+  .dera-pullquote cite span { display: block; margin-top: 2px; }
 
   /* Kjenner du deg igjen */
   .dera-list { list-style: none; padding: 0; margin: var(--space-3) 0 var(--space-4); display: grid; gap: var(--space-2); }
@@ -115,8 +117,9 @@
 
   /* Hva er mentaltrening */
   .dera-story { border-left: 4px solid var(--rose-brand); padding-left: var(--space-3); margin: var(--space-3) 0; }
-  .dera-skills { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin: var(--space-3) 0; }
-  .dera-skills li { background: var(--blush); color: var(--ink); border-radius: 999px; padding: 8px 16px; font-size: 16px; font-weight: 600; }
+  .dera-skills { list-style: none; padding: 0; margin: var(--space-3) 0; display: grid; gap: 12px; }
+  .dera-skills li { background: var(--cream); border-left: 4px solid var(--blush); border-radius: 0 10px 10px 0; padding: 12px 16px; font-size: 17px; color: var(--ink-soft); }
+  .dera-skills strong { color: var(--ink); }
 
   /* Innhold i boken */
   .dera-features { display: grid; grid-template-columns: 1fr; gap: var(--space-3); margin-top: var(--space-4); }
@@ -132,8 +135,9 @@
   .dera-callout__big { font-family: "Playfair Display", Georgia, serif; font-size: clamp(26px, 3.4vw, 36px); color: var(--rose); margin-bottom: var(--space-2); }
 
   /* Om Ine */
-  .dera-author { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: center; }
-  .dera-author__img img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .dera-author { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: start; }
+  .dera-author__img { max-width: 420px; width: 100%; margin: 0 auto; }
+  .dera-author__img img { border-radius: var(--radius); box-shadow: var(--shadow); width: 100%; height: auto; }
   .dera-creds { display: flex; flex-wrap: wrap; gap: 10px 20px; list-style: none; padding: 0; margin: var(--space-3) 0 0; font-size: 15px; color: var(--ink-soft); }
   .dera-creds li { display: flex; align-items: center; gap: 8px; }
   .dera-creds svg { width: 18px; height: 18px; color: var(--rose); flex: none; }
@@ -145,6 +149,7 @@
   .dera-quote blockquote { margin: 0; font-size: 17px; line-height: 1.6; }
   .dera-quote figcaption { margin-top: auto; font-weight: 700; font-size: 15px; color: var(--ink-soft); }
   .dera-quote img { border-radius: 10px; }
+  .dera-quote__role { display: block; font-weight: 400; }
 
   /* Bestill */
   .dera-order { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: start; }
@@ -236,10 +241,10 @@
   </section>
 
   <!-- 2. SITAT -->
-  <section class="dera-pullquote" aria-label="Fra en leser">
+  <section class="dera-pullquote" aria-label="Anja Hammerseng-Edin om boken">
     <div class="dera-narrow">
-      <blockquote>«Boken fikk meg til å stille spørsmål jeg hadde sluttet å tørre å stille.»</blockquote>
-      <cite>– Leser, i 30-årene</cite>
+      <blockquote>«Det Ine skriver om er enormt sterkt å kunne noe om, og hun formidler på en fantastisk og ekte måte. En viktig bok jeg satte stor pris på å få lese.»</blockquote>
+      <cite><strong>Anja Hammerseng-Edin</strong><span>Tidligere landslagskaptein i håndball</span></cite>
     </div>
   </section>
 
@@ -267,11 +272,17 @@
         <p>Da jeg sto på scenen på Kamille Weekend, spurte jeg salen: «Hvor mange vet egentlig hva mental trening er – og hva man konkret trener på?»</p>
         <p>Noen hender kom opp. Men da jeg begynte å forklare hva mental trening faktisk innebærer, trakk flere hånden ned igjen.</p>
       </div>
-      <p>For mentaltrening handler ikke om å bite tennene sammen, «gønne på» eller tenke positivt. Det handler om å trene ferdigheter som gjør deg bedre rustet til å håndtere både deg selv og livet:</p>
-      <ul class="dera-skills" aria-label="Ferdigheter du trener">
-        <li>Oppmerksomhet</li><li>Indre dialog</li><li>Stressregulering</li><li>Selvtillit</li><li>Mål</li><li>Gode vaner</li>
+      <p>For mentaltrening handler ikke om å bite tennene sammen, «gønne på» eller tenke positivt.</p>
+      <p>Det handler om å trene ferdigheter som gjør deg bedre rustet til å håndtere både deg selv og livet. Vi kan blant annet trene på:</p>
+      <ul class="dera-skills">
+        <li><strong>Fokus og tilstedeværelse</strong> – å styre oppmerksomheten og være mer her og nå.</li>
+        <li><strong>Indre dialog</strong> – å bli bevisst hvordan vi snakker til oss selv.</li>
+        <li><strong>Tanker og perspektiver</strong> – å utfordre gamle tankemønstre og se nye muligheter.</li>
+        <li><strong>Stress og følelser</strong> – å finne ro og håndtere motgang.</li>
+        <li><strong>Visualisering og selvtillit</strong> – å forberede oss mentalt og styrke troen på oss selv.</li>
+        <li><strong>Mål og vaner</strong> – å omsette det vi vet til handling.</li>
       </ul>
-      <p>Det er dette <strong>Du er rå!</strong> lærer deg. Enkelt, praktisk og steg for steg – slik at du kan bruke det samme dag.</p>
+      <p>Det er dette <strong>Du er rå!</strong> lærer deg. Enkelt, praktisk og steg for steg – slik at du kan komme i gang med treningen.</p>
     </div>
   </section>
 
@@ -300,12 +311,12 @@
         <article class="dera-feature">
           <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-brain"/></svg></div>
           <h3>En innføring i mental styrketrening</h3>
-          <p>Med konkrete øvelser du kan bruke når hodet kverner.</p>
+          <p>Med konkrete øvelser du kan bruke i hverdagen når hodet kverner.</p>
         </article>
         <article class="dera-feature">
           <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-wind"/></svg></div>
           <h3>En introduksjon til HypnoBreathwork</h3>
-          <p>En enkel vei til å roe ned kropp og hode.</p>
+          <p>En kraftfull pusteteknikk for ny innsikt og nye perspektiver.</p>
         </article>
         <article class="dera-feature">
           <div class="dera-feature__icon"><svg aria-hidden="true"><use href="#dera-i-pen"/></svg></div>
@@ -316,7 +327,7 @@
       </div>
       <div class="dera-callout">
         <p class="dera-callout__big">Vi klarer alle mer enn vi tror. Det gjelder også deg.</p>
-        <p class="dera-lead">Mentaltrening er ferskvare, ikke en engangsøvelse. Derfor er boken laget for å brukes, ikke bare leses.</p>
+        <p class="dera-lead">Mentaltrening er ferskvare, ikke en engangsøvelse. Derfor er boken laget for å brukes, ikke bare leses: Begynn med ett fokus. Tren på det. Og spill deg selv litt bedre i hverdagen.</p>
       </div>
     </div>
   </section>
@@ -327,15 +338,16 @@
       <div class="dera-author__img">
         <!-- TODO: sjekk at bildet laster (portrettet fra dagens skjulte «Om meg»-seksjon) -->
         <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2155981829/settings_images/088d3ef-7d26-d76-8eb3-737510bcdaa_eb10703f-966c-470d-b540-08c4752c8c70.JPG"
-             alt="Ine Røyert, mentaltrener og forfatter" width="800" height="1000" loading="lazy">
+             alt="Ine Røyert, mentaltrener og forfatter" loading="lazy">
       </div>
       <div>
         <p class="dera-eyebrow">Om forfatteren</p>
         <h2 id="dera-author">Jeg heter Ine – og jeg slet med norskkarakterene</h2>
-        <p>Som barn syntes jeg bokstavene blandet seg. Jeg har dysleksi, og norsk var faget jeg slet mest med.</p>
-        <p>Likevel kom <strong>Du er rå!</strong> på Norlis bestselgerliste da den ble lansert.</p>
-        <p>Jeg forteller det ikke for å skryte. Jeg forteller det fordi det er hele poenget med boken: Det bor mer i deg enn du tror – og du kan trene det frem.</p>
-        <p>Mentaltrening traff meg allerede som 16-åring. Hadde jeg visst hvor avgjørende det skulle bli, hadde jeg trent enda oftere og startet enda tidligere. Derfor skrev jeg boken – for å gjøre mental trening enkel og praktisk, slik at du faktisk kan bruke den.</p>
+        <p>Jeg har en mild form for dysleksi, og på skolen fikk jeg skikkelig sperrer i norsk. Det var faget jeg slet mest med.</p>
+        <p><strong>Likevel skrev jeg en bok som kom på Norlis bestselgerliste da den ble lansert.</strong></p>
+        <p>Jeg forteller ikke dette for å skryte, men fordi det er nettopp det <em>Du er rå!</em> handler om: Det bor mer i deg enn du tror – og du kan trene det frem.</p>
+        <p>Mentaltrening traff meg allerede som 16-åring, og har vært en gamechanger for valgene jeg har tatt og for hvordan jeg har taklet livet. I dag jobber jeg som mentaltrener og lederutvikler, med en bachelor i ledelse fra BI og over 15 års erfaring som prosjektleder i næringslivet. Hver dag hjelper jeg ledere, gründere og ambisiøse mennesker med å nå målene sine – og samtidig ha det bra på veien.</p>
+        <p>Hadde jeg visst hvor avgjørende mentaltrening skulle bli, hadde jeg trent enda oftere og startet enda tidligere. Derfor skrev jeg denne boken. Jeg ville gjøre mentaltrening enkelt og praktisk, slik at flere kan få glede av disse verktøyene og komme i gang på egen hånd.</p>
         <ul class="dera-creds">
           <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Mentaltrener og lederutvikler</li>
           <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Bachelor i ledelse, BI</li>
@@ -357,9 +369,8 @@
         </figure>
         <figure class="dera-quote">
           <svg class="dera-quote__mark" aria-hidden="true"><use href="#dera-i-quote"/></svg>
-          <!-- [BEKREFT] fullt sitat og tillatelse fra Anja Hammereng-Edin -->
-          <blockquote>«Det Ine skriver om er enormt sterkt å kunne noe om, og hun formidler på en fantastisk og ekte måte […]»</blockquote>
-          <figcaption>Anja Hammereng-Edin</figcaption>
+          <blockquote>«Jeg leser mye, og mange bøker er dessverre sånn passe. Men noen skiller seg ut – og dette er en av dem! Du er rå! er nyttig, poengtert og godt strukturert. Den gir konkrete og gode verktøy innen mental trening. Dette er en bok som ikke bare inspirerer, men inviterer til refleksjon og handling. Jeg er allerede i gang med å lese den igjen.»</blockquote>
+          <figcaption>Anna Silje Onaas Andersen<span class="dera-quote__role">Endringsleder og rådgiver</span></figcaption>
         </figure>
         <figure class="dera-quote">
           <!-- TODO: erstatt med teksten fra testimonial-bildet, ord for ord. Bildet beholdes. -->
@@ -390,7 +401,7 @@
           <li><svg aria-hidden="true"><use href="#dera-i-check"/></svg>Tilgang til ekstra øvelser på nett</li>
         </ul>
         <div class="dera-gift">
-          <strong>Skal boken være en gave?</strong> Kjøper du med Vipps, er det ditt navn og din adresse som kommer på pakken. Send en e-post til <a href="mailto:team@ineroyert.no">team@ineroyert.no</a> rett etter bestilling, med navnet som skal stå i signeringen og eventuell annen leveringsadresse.
+          <strong>Skal boken være en gave?</strong> Kjøper du med Vipps, er det ditt navn og din adresse som kommer på pakken. Send en e-post til <a href="mailto:team@ineroyert.no">team@ineroyert.no</a> hvis hilsenen skal skrives til noen andre.
         </div>
       </div>
       <div class="dera-form">
@@ -406,7 +417,7 @@
   <section class="dera-section dera-section--white" aria-label="Avslutning">
     <div class="dera-narrow dera-close">
       <p class="dera-lead">Du trenger ikke endre alt på én gang.</p>
-      <p class="dera-turn">Begynn med én ting. Tren på den. Og kjenn hvor mye mer som bor i deg.</p>
+      <p class="dera-turn">Begynn med ett fokus. Tren på det. Og kjenn hvor mye mer som bor i deg.</p>
       <a class="dera-btn" href="#bestill" style="margin-top: 24px;">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
       <p class="dera-close__sign">Varm hilsen,<br>Ine</p>
       <p class="dera-ps"><strong>P.S.</strong> En av leserne mine fikk boken i julegave av en venninne, midt i det hun kalte det verste året i livet sitt. I dag sier hun at hun står støtt, også når livet blåser. Hvis du vet om noen som trenger den akkurat nå, skriver jeg gjerne en hilsen til dem.</p>
