@@ -7,7 +7,7 @@
   - Pris (349 kr er prisen på Kajabi-offeret – sjekk mot edpay). Frakt inkludert og vilkår hentet fra /kjopsvilkaarbok
   - Bildelenker (Kajabi CDN-stier fra dagens side – sjekk at de laster)
   - Sitatet fra Anja Hammerseng-Edin: fullt sitat hentet fra e-post 08.09.2024 – bekreft tillatelse
-  - Teksten fra de tre testimonial-bildene
+  - Testimonial-bildet er erstattet med teksten (Marthe Kveli Valeberg), ord for ord
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@
 
   .dera-wrap { max-width: 1080px; margin: 0 auto; padding: 0 var(--space-3); }
   .dera-narrow { max-width: 720px; margin: 0 auto; padding: 0 var(--space-3); }
-  .dera-section { padding: var(--space-6) 0; }
+  .dera-section { padding: var(--space-5) 0; }
   .dera-section--white { background: var(--white); }
   .dera-section--blush { background: var(--blush); }
   .dera-eyebrow {
@@ -72,9 +72,11 @@
   .dera-btn:focus-visible, .dera a:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
   .dera-btn svg { width: 20px; height: 20px; flex: none; }
   .dera-micro { font-size: 15px; color: var(--ink-soft); margin-top: 12px; }
+  .dera-cta { text-align: center; margin-top: var(--space-4); }
+  .dera-cta .dera-micro { margin-bottom: 0; }
 
   /* Hero */
-  .dera-hero { padding: var(--space-5) 0 var(--space-6); background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%); }
+  .dera-hero { padding: var(--space-4) 0 var(--space-5); background: linear-gradient(180deg, var(--cream) 0%, var(--blush) 100%); }
   .dera-hero__grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); align-items: center; }
   .dera-hero__badge {
     display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px;
@@ -94,7 +96,7 @@
   .dera-hero__cover img { border-radius: 6px; box-shadow: 0 30px 60px rgba(58, 42, 48, 0.25); transform: rotate(-2deg); }
 
   /* Sitat under hero */
-  .dera-pullquote { text-align: center; padding: var(--space-5) 0; background: var(--white); }
+  .dera-pullquote { text-align: center; padding: var(--space-4) 0; background: var(--white); }
   .dera-pullquote blockquote {
     margin: 0 auto; max-width: 760px;
     font-family: "Playfair Display", Georgia, serif; font-style: italic; font-weight: 500;
@@ -163,7 +165,7 @@
   .dera-includes svg { width: 20px; height: 20px; color: var(--rose); margin-top: 4px; }
   .dera-gift { background: var(--cream); border-radius: 12px; padding: var(--space-2) 20px; font-size: 16px; color: var(--ink-soft); }
   .dera-gift a { color: var(--rose); font-weight: 700; }
-  .dera-form { min-height: 420px; } /* reserverer plass til skjemaet (unngår layout-hopp) */
+  .dera-form { min-height: 420px; scroll-margin-top: 16px; } /* reserverer plass til skjemaet (unngår layout-hopp) */
 
   .dera-legal { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin-top: var(--space-2); }
   .dera-legal a, .dera-footer a { color: var(--rose); text-decoration: underline; }
@@ -179,7 +181,9 @@
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
     background: rgba(255, 255, 255, 0.96); box-shadow: 0 -6px 20px rgba(58, 42, 48, 0.12);
     display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    transition: transform 250ms ease;
   }
+  .dera-sticky.is-hidden { transform: translateY(110%); pointer-events: none; }
   .dera-sticky span { font-weight: 700; font-size: 16px; }
   .dera-sticky .dera-btn { min-height: 44px; padding: 10px 20px; font-size: 16px; }
 
@@ -189,6 +193,8 @@
   }
   @media (min-width: 960px) {
     .dera-hero { padding: var(--space-6) 0; }
+    .dera-section { padding: var(--space-6) 0; }
+    .dera-pullquote { padding: var(--space-5) 0; }
     .dera-hero__grid { grid-template-columns: 1.15fr 0.85fr; }
     .dera-features { grid-template-columns: repeat(3, 1fr); }
     .dera-author { grid-template-columns: 0.8fr 1.2fr; }
@@ -228,7 +234,7 @@
         <h1 id="dera-title">DU ER RÅ!</h1>
         <p class="dera-hero__subtitle">Oppdag ditt potensial med mentaltrening</p>
         <p class="dera-hero__text">Du vet sikkert allerede mye om hva som er bra for deg. Denne boken handler om hvordan du faktisk <em>bruker</em> det – når hodet kverner, når du står i et vanskelig valg, og når du trenger å stole mer på deg selv.</p>
-        <a class="dera-btn" href="#bestill">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+        <a class="dera-btn" href="#bestill-skjema">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
         <p class="dera-micro">Signert av meg, med en personlig hilsen. Kun når du bestiller her.</p>
       </div>
       <div class="dera-hero__cover">
@@ -259,6 +265,10 @@
       </ul>
       <p class="dera-lead">Det er ikke fordi du mangler viljestyrke.</p>
       <p class="dera-turn">Mental styrke er ikke noe du enten har eller ikke har. Det er <em>ferdigheter du kan trene</em> – akkurat som kroppen.</p>
+      <div class="dera-cta">
+        <a class="dera-btn" href="#bestill-skjema">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+        <p class="dera-micro">Rask betaling med Vipps · Frakt inkludert</p>
+      </div>
     </div>
   </section>
 
@@ -328,6 +338,10 @@
         <p class="dera-callout__big">Vi klarer alle mer enn vi tror. Det gjelder også deg.</p>
         <p class="dera-lead">Mentaltrening er ferskvare, ikke en engangsøvelse. Derfor er boken laget for å brukes, ikke bare leses: Begynn med ett fokus. Tren på det. Og spill deg selv litt bedre i hverdagen.</p>
       </div>
+      <div class="dera-cta">
+        <a class="dera-btn" href="#bestill-skjema">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+        <p class="dera-micro">Rask betaling med Vipps · Frakt inkludert</p>
+      </div>
     </div>
   </section>
 
@@ -372,11 +386,14 @@
           <figcaption>Anna Silje Onaas Andersen<span class="dera-quote__role">Endringsleder og rådgiver</span></figcaption>
         </figure>
         <figure class="dera-quote">
-          <!-- TODO: erstatt med teksten fra testimonial-bildet, ord for ord. Bildet beholdes. -->
-          <img src="https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/file-uploads/themes/2157842897/settings_images/131de0-d3fd-7b7a-32a7-fbaad81f2fe7_1.jpg"
-               alt="Tilbakemelding fra en leser av Du er rå!" width="600" height="600" loading="lazy">
-          <figcaption>Leser av Du er rå!</figcaption>
+          <svg class="dera-quote__mark" aria-hidden="true"><use href="#dera-i-quote"/></svg>
+          <blockquote>«En bok alle som ønsker å investere i seg selv, og vokse som mennesker, bør ha i bokhyllen sin. Jeg synes den var lettlest og oversiktlig, skrevet på en måte som gjør det lett for leseren å forstå, og dermed også lett å ta lærdom av.»</blockquote>
+          <figcaption>Marthe Kveli Valeberg<span class="dera-quote__role">Influenser og bestselgende forfatter</span></figcaption>
         </figure>
+      </div>
+      <div class="dera-cta">
+        <a class="dera-btn" href="#bestill-skjema">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+        <p class="dera-micro">Rask betaling med Vipps · Frakt inkludert</p>
       </div>
     </div>
   </section>
@@ -402,7 +419,7 @@
           <strong>Skal boken være en gave?</strong> Kjøper du med Vipps, er det ditt navn og din adresse som kommer på pakken. Send en e-post til <a href="mailto:team@ineroyert.no">team@ineroyert.no</a> hvis hilsenen skal skrives til noen andre.
         </div>
       </div>
-      <div class="dera-form">
+      <div class="dera-form" id="bestill-skjema">
         <!-- Bestillingsskjema (edpay) – skal kun finnes ÉN gang på siden -->
         <div id="edpay-book-checkout"></div>
         <script src="https://app.edpay.no/js/book_checkout_embed.js" defer onload="edpayBookCheckout(418, 10131, '#edpay-book-checkout')"></script>
@@ -416,7 +433,7 @@
     <div class="dera-narrow dera-close">
       <p class="dera-lead">Du trenger ikke endre alt på én gang.</p>
       <p class="dera-turn">Begynn med ett fokus. Tren på det. Og kjenn hvor mye mer som bor i deg.</p>
-      <a class="dera-btn" href="#bestill" style="margin-top: 24px;">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
+      <a class="dera-btn" href="#bestill-skjema" style="margin-top: 24px;">Bestill signert bok – 349 kr <svg aria-hidden="true"><use href="#dera-i-arrow"/></svg></a>
       <p class="dera-close__sign">Varm hilsen,<br>Ine</p>
       <p class="dera-ps"><strong>P.S.</strong> En av leserne mine fikk boken i julegave av en venninne, midt i det hun kalte det verste året i livet sitt. I dag sier hun at hun står støtt, også når livet blåser. Hvis du vet om noen som trenger den akkurat nå, skriver jeg gjerne en hilsen til dem.</p>
     </div>
@@ -430,6 +447,29 @@
   <!-- Sticky knapp (kun mobil/nettbrett) -->
   <div class="dera-sticky" role="region" aria-label="Bestill boken">
     <span>Du er rå! · 349 kr</span>
-    <a class="dera-btn" href="#bestill">Bestill</a>
+    <a class="dera-btn" href="#bestill-skjema">Bestill</a>
   </div>
 </div>
+
+<script>
+  (function () {
+    var form = document.getElementById('bestill-skjema');
+    if (!form) return;
+    // Egen håndtering av bestill-knappene, så temaets/app-nettleserens ankerlogikk ikke stopper dem
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('.dera a[href="#bestill-skjema"]');
+      if (!link) return;
+      e.preventDefault();
+      e.stopPropagation();
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, true);
+    // Skjul sticky-knappen mens bestillingsseksjonen er synlig
+    var sticky = document.querySelector('.dera-sticky');
+    var order = document.getElementById('bestill');
+    if (sticky && order && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
+      }).observe(order);
+    }
+  })();
+</script>
