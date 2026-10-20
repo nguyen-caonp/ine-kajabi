@@ -166,6 +166,8 @@
   .dera-gift { background: var(--cream); border-radius: 12px; padding: var(--space-2) 20px; font-size: 16px; color: var(--ink-soft); }
   .dera-gift a { color: var(--rose); font-weight: 700; }
   .dera-form { min-height: 420px; scroll-margin-top: 16px; } /* reserverer plass til skjemaet (unngår layout-hopp) */
+  .dera-form-fallback { background: var(--white); border-radius: 12px; padding: var(--space-2) 20px; font-size: 16px; }
+  .dera-form-fallback a { color: var(--rose); font-weight: 700; }
 
   .dera-legal { font-size: 14px; line-height: 1.55; color: var(--ink-soft); margin-top: var(--space-2); }
   .dera-legal a, .dera-footer a { color: var(--rose); text-decoration: underline; }
@@ -423,6 +425,7 @@
         <!-- Bestillingsskjema (edpay) – skal kun finnes ÉN gang på siden -->
         <div id="edpay-book-checkout"></div>
         <script src="https://app.edpay.no/js/book_checkout_embed.js" defer onload="edpayBookCheckout(418, 10131, '#edpay-book-checkout')"></script>
+        <p class="dera-form-fallback" id="edpay-fallback" hidden>Ser du ikke bestillingsskjemaet? Last inn siden på nytt, eller send en e-post til <a href="mailto:team@ineroyert.no">team@ineroyert.no</a>, så hjelper vi deg med bestillingen.</p>
         <p class="dera-legal">Signerte bøker er personlig tilpasset, og angreretten gjelder derfor ikke (angrerettloven § 22 bokstav e). Ønsker du en usignert utgave, send en e-post før du bestiller. Ved å bestille godtar du <a href="https://www.ineroyert.no/kjopsvilkaarbok" target="_blank" rel="noopener">kjøpsvilkårene</a>. Les også <a href="https://www.ineroyert.no/personvern" target="_blank" rel="noopener">personvernerklæringen</a>.</p>
       </div>
     </div>
@@ -463,6 +466,20 @@
       e.stopPropagation();
       form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, true);
+    // Sikkerhetsnett for edpay-skjemaet: tegn det på nytt hvis det fortsatt er tomt etter lasting
+    var box = document.getElementById('edpay-book-checkout');
+    function isEmpty() { return box && box.children.length === 0; }
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        if (isEmpty() && typeof window.edpayBookCheckout === 'function') {
+          try { window.edpayBookCheckout(418, 10131, '#edpay-book-checkout'); } catch (err) {}
+        }
+        setTimeout(function () {
+          var fb = document.getElementById('edpay-fallback');
+          if (isEmpty() && fb) fb.hidden = false;
+        }, 4000);
+      }, 2500);
+    });
     // Skjul sticky-knappen mens bestillingsseksjonen er synlig
     var sticky = document.querySelector('.dera-sticky');
     var order = document.getElementById('bestill');
