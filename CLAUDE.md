@@ -56,4 +56,5 @@ Book resources page for buyers: www.ineroyert.no/ressurser/bok.
 ## Open issues / decisions
 - **Book buyers get a Kajabi login email** because edpay *grants* an offer. The planned fix is edpay → n8n → Form.bokkjøp, then switching automation 442007's trigger to the form. Needs a test address and someone with edpay admin access.
 - Workbook: waiting for the final PDF (new cover + proofread), Ine's approval of the prices, a Black Week coupon, and the EdPay upsell webhook. Naming: PDF says "Treningsboka", Kajabi says "Arbeidsbok" – align.
+- Workbook vs. strategy: the guide says to avoid new one-off products until the flagship sells predictably. Make Treningsboka feed the flagship instead – add a KAPASITETSKODEN™/webinar invite to its last page (currently only «Les mer: www.ineroyert.no»), in line with the guide's priority 8.
 - Don't send customer-facing changes (emails, broadcasts, publishing) without approval from the AweSM team or Ine.
