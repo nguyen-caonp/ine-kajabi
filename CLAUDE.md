@@ -1,7 +1,7 @@
 # Ine Røyert – business profile (foundation document)
 
 Client of AweSM. This repo holds work for Ine's business: email templates, automations notes, and this profile.
-Last updated: 2026-11-23. The fuller voice, audience and strategy reference is AweSM's «Ine Røyert – Copy & Strategy Guide» (15 Oct 2026); this file adds what changed since.
+Last updated: 2026-11-23. The fuller voice, audience and strategy reference is AweSM's «Ine Røyert – Copy & Strategy Guide» (15 Oct 2026) in [docs/copy-strategy-guide.md](docs/copy-strategy-guide.md) – read it before writing any copy; this file adds what changed since.
 
 ## Who
 - **Ine Røyert** – mentaltrener (mental trainer), lederutvikler (leadership developer), author of the book *Du er rå!*
